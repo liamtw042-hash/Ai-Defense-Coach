@@ -68,8 +68,9 @@ Defined once in `tailwind.config.js` and `src/index.css`.
 | `sky` | `#A9C5E0` | Light-blue accent, used sparingly |
 | `ink` | `#111E30` | Body text on light |
 
-- **Headings:** Fraunces (an editorial, high-contrast serif) — reads as an
-  established advisory firm, not a tech product.
+- **Headings:** Libre Caslon Text (a classic, restrained editorial serif) — clean,
+  conventional letterforms that read as an established advisory firm, not a tech
+  product or a boutique/creative studio.
 - **Body / UI:** Instrument Sans (a clean neutral grotesque) — deliberately not Inter.
 - **Motion:** a single slow fade-and-rise on scroll, and nothing else. Disabled
   automatically for `prefers-reduced-motion`.

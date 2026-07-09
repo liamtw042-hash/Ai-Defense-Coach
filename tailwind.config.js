@@ -38,7 +38,7 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['Fraunces', 'Georgia', 'serif'],
+        serif: ['"Libre Caslon Text"', 'Georgia', 'serif'],
         sans: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
       },
       fontSize: {
