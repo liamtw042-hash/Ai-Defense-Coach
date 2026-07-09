@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    font-feature-settings: 'ss01', 'cv01';
+  }
+
+  /* Serif headings default to Fraunces optical sizing for large display use. */
+  h1,
+  h2,
+  h3 {
+    @apply font-serif text-navy;
+    font-optical-sizing: auto;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: #0a1f3c;
+    color: #fbfaf6;
+  }
+
+  /* Considered focus ring — visible, restrained, on-brand. */
+  :focus-visible {
+    outline: 2px solid #b58e3f;
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+  }
+}
+
+@layer components {
+  /* The page shell: generous, editorial gutters. */
+  .shell {
+    @apply mx-auto w-full max-w-shell px-6 sm:px-10 lg:px-16;
+  }
+
+  .shell-tight {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-16;
+  }
+
+  /* Small-caps eyebrow label — a consultancy convention. */
+  .eyebrow {
+    @apply font-sans text-eyebrow uppercase text-gold;
+    font-weight: 600;
+  }
+
+  .eyebrow-light {
+    @apply eyebrow text-gold-soft;
+  }
+
+  /* Gold hairline used sparingly for emphasis. */
+  .rule-gold {
+    @apply block h-px w-12 bg-gold;
+  }
+
+  /* Text link with a refined animated underline. */
+  .link-underline {
+    @apply relative inline-flex items-center gap-2 font-sans font-medium text-navy;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    padding-bottom: 1px;
+  }
+
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Buttons — squared, restrained, no candy gradients. */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-sans text-sm font-medium tracking-wide transition-all duration-500 ease-editorial;
+    padding: 0.9rem 1.6rem;
+  }
+
+  .btn-primary {
+    @apply btn bg-navy text-paper hover:bg-navy-deep;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold text-navy-deep hover:bg-gold-soft;
+  }
+
+  .btn-ghost {
+    @apply btn border border-navy/25 text-navy hover:border-navy hover:bg-navy hover:text-paper;
+  }
+
+  .btn-ghost-light {
+    @apply btn border border-paper/30 text-paper hover:bg-paper hover:text-navy;
+  }
+}
+
+@layer utilities {
+  /* Subtle paper grain — keeps large flat fields from feeling flat/AI-clean. */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .hanging-quote {
+    text-indent: -0.4em;
+  }
+}
