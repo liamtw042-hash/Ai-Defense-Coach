@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TransitionHQ — Seminar Flyer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #0a1f3c;
+        --navy-deep: #071528;
+        --gold: #b58e3f;
+        --gold-soft: #c9a968;
+        --sky: #a9c5e0;
+        --paper: #fbfaf6;
+        --paper-soft: #f4f1ea;
+        --ink: #111e30;
+        --ink-soft: #41505f;
+        --ink-faint: #6e7a87;
+        --line: #e4dfd3;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      html,
+      body {
+        background: #d9d5cc;
+      }
+
+      .page {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: 'Instrument Sans', system-ui, sans-serif;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .eyebrow {
+        font-size: 8pt;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--gold);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .eyebrow::before {
+        content: '';
+        width: 22px;
+        height: 1px;
+        background: var(--gold);
+        display: inline-block;
+      }
+
+      .serif {
+        font-family: 'Fraunces', Georgia, serif;
+        font-optical-sizing: auto;
+        font-feature-settings: normal;
+        font-variant-ligatures: common-ligatures;
+      }
+
+      /* ---- Header ---- */
+      .header {
+        padding: 9mm 16mm 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .wordmark {
+        font-family: 'Fraunces', serif;
+        font-weight: 500;
+        font-size: 22pt;
+        letter-spacing: -0.01em;
+        color: var(--navy);
+      }
+      .wordmark .hq {
+        color: var(--gold);
+      }
+
+      /* ---- Hero ---- */
+      .hero {
+        padding: 5mm 16mm 0;
+      }
+      .hero h1 {
+        font-family: 'Fraunces', serif;
+        font-weight: 500;
+        font-size: 26pt;
+        line-height: 1.05;
+        letter-spacing: -0.015em;
+        color: var(--navy);
+        max-width: 168mm;
+      }
+      .hero h1 .muted {
+        color: var(--ink-soft);
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .mission {
+        margin-top: 4mm;
+        font-size: 10.5pt;
+        line-height: 1.5;
+        color: var(--ink-soft);
+        max-width: 150mm;
+      }
+      .mission strong {
+        color: var(--navy);
+        font-weight: 500;
+      }
+
+      /* ---- Program pillars ---- */
+      .program {
+        padding: 5mm 16mm 0;
+        flex: 1;
+      }
+      .program-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 3mm;
+      }
+      .program-head h2 {
+        font-family: 'Fraunces', serif;
+        font-weight: 500;
+        font-size: 15pt;
+        color: var(--navy);
+      }
+      .pillars {
+        list-style: none;
+      }
+      .pillar {
+        display: grid;
+        grid-template-columns: 12mm 1fr;
+        gap: 6mm;
+        align-items: baseline;
+        padding: 2mm 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .pillar .no {
+        font-family: 'Fraunces', serif;
+        font-size: 12pt;
+        color: var(--gold);
+      }
+      .pillar .title {
+        font-family: 'Fraunces', serif;
+        font-weight: 500;
+        font-size: 13pt;
+        color: var(--navy);
+        display: block;
+        margin-bottom: 1mm;
+      }
+      .pillar .desc {
+        font-size: 9.5pt;
+        line-height: 1.4;
+        color: var(--ink-soft);
+      }
+
+      /* ---- Difference line ---- */
+      .difference {
+        margin: 3mm 0 0;
+        padding: 4mm 6mm;
+        background: var(--paper-soft);
+        border-left: 2px solid var(--gold);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 6mm;
+        align-items: center;
+      }
+      .difference .label {
+        font-size: 8pt;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--gold);
+        white-space: nowrap;
+      }
+      .difference p {
+        font-size: 10pt;
+        line-height: 1.45;
+        color: var(--ink);
+      }
+      .difference p strong {
+        font-family: 'Fraunces', serif;
+        font-weight: 500;
+      }
+
+      /* ---- Footer / contact ---- */
+      .footer {
+        margin-top: 5mm;
+        background: var(--navy);
+        color: var(--paper);
+        padding: 6mm 16mm;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12mm;
+        align-items: center;
+      }
+      .footer .cta-label {
+        font-size: 8pt;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--gold-soft);
+      }
+      .footer h3 {
+        font-family: 'Fraunces', serif;
+        font-weight: 500;
+        font-size: 15pt;
+        line-height: 1.12;
+        margin-top: 2.5mm;
+        color: var(--paper);
+        max-width: 110mm;
+      }
+      .contact {
+        margin-top: 4mm;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3mm 8mm;
+        font-size: 9.5pt;
+        color: rgba(251, 250, 246, 0.85);
+      }
+      .contact .item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .contact .dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--gold);
+        display: inline-block;
+      }
+      .qr {
+        text-align: center;
+      }
+      .qr-box {
+        width: 30mm;
+        height: 30mm;
+        background: var(--paper);
+        border-radius: 2px;
+        padding: 2.6mm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .qr-box svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .qr .scan {
+        margin-top: 2.5mm;
+        font-size: 7.5pt;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(251, 250, 246, 0.7);
+      }
+
+      .footer-note {
+        grid-column: 1 / -1;
+        margin-top: 3mm;
+        padding-top: 2.5mm;
+        border-top: 1px solid rgba(251, 250, 246, 0.14);
+        font-size: 6.8pt;
+        line-height: 1.45;
+        color: rgba(251, 250, 246, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <span class="wordmark">Transition<span class="hq">HQ</span></span>
+        <span class="eyebrow">Defence Career Transition · Australia</span>
+      </header>
+
+      <section class="hero">
+        <h1 class="serif">
+          You spent your career serving Australia.
+          <span class="muted">Let’s build <em>what comes next.</em></span>
+        </h1>
+        <p class="mission">
+          <strong>TransitionHQ</strong> is a boutique consultancy guiding Australian Defence Force
+          members through every step of the move into rewarding civilian careers. We don’t just write
+          résumés — we partner with you through the entire journey, from your first thoughts of
+          transition to your first months in a new role.
+        </p>
+      </section>
+
+      <section class="program">
+        <div class="program-head">
+          <h2 class="serif">The Career Transition Success Program</h2>
+          <span class="eyebrow">Five pillars, one journey</span>
+        </div>
+        <ol class="pillars">
+          <li class="pillar">
+            <span class="no serif">01</span>
+            <span>
+              <span class="title">Career Discovery</span>
+              <span class="desc"
+                >Understanding who you are beyond your service — your strengths, values and the
+                civilian direction that will genuinely suit you.</span
+              >
+            </span>
+          </li>
+          <li class="pillar">
+            <span class="no serif">02</span>
+            <span>
+              <span class="title">Professional Branding</span>
+              <span class="desc"
+                >A résumé, LinkedIn presence and personal narrative that speak the language of
+                civilian employers with authority.</span
+              >
+            </span>
+          </li>
+          <li class="pillar">
+            <span class="no serif">03</span>
+            <span>
+              <span class="title">Job Search Support</span>
+              <span class="desc"
+                >Practical, hands-on guidance through the civilian job market — where to look, how to
+                apply, and how to open the right doors.</span
+              >
+            </span>
+          </li>
+          <li class="pillar">
+            <span class="no serif">04</span>
+            <span>
+              <span class="title">Interview Preparation</span>
+              <span class="desc"
+                >The confidence to walk into any interview and speak to your value in terms a civilian
+                panel will understand and remember.</span
+              >
+            </span>
+          </li>
+          <li class="pillar">
+            <span class="no serif">05</span>
+            <span>
+              <span class="title">Transition Support</span>
+              <span class="desc"
+                >A steady partnership that continues well past your first day — through the real
+                adjustment of settling into civilian working life.</span
+              >
+            </span>
+          </li>
+        </ol>
+
+        <div class="difference">
+          <span class="label">Why we’re different</span>
+          <p>
+            <strong>Led by people who have served — not by an algorithm.</strong> Our team combines
+            Defence experience, executive leadership and recruitment insight. Technology stays quietly
+            in the background, so we spend more time on you.
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div>
+          <span class="cta-label">Begin your transition</span>
+          <h3 class="serif">Book a confidential discovery call.</h3>
+          <div class="contact">
+            <span class="item"><span class="dot"></span> hello@transitionhq.com.au</span>
+            <span class="item"><span class="dot"></span> 1300 000 000</span>
+            <span class="item"><span class="dot"></span> transitionhq.com.au</span>
+          </div>
+        </div>
+        <div class="qr">
+          <div class="qr-box">
+            <!-- QR -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#0A1F3C" d="M0 0.5h7m1 0h1m1 0h1m2 0h3m2 0h1m3 0h7M0 1.5h1m5 0h1m1 0h1m3 0h4m1 0h1m1 0h1m2 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h2m3 0h2m7 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m2 0h1m2 0h1m1 0h2m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h6m1 0h1m2 0h2m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m3 0h5m2 0h1m4 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 7.5h1m1 0h2m1 0h1M0 8.5h1m2 0h7m3 0h6m2 0h1m2 0h1m1 0h3M2 9.5h4m2 0h1m2 0h2m1 0h1m2 0h5m1 0h2m1 0h2M0 10.5h1m2 0h1m2 0h1m1 0h3m3 0h1m6 0h1m1 0h1m2 0h1M1 11.5h1m1 0h1m3 0h1m1 0h1m2 0h1m1 0h2m1 0h2m2 0h1m3 0h1m2 0h1M0 12.5h1m3 0h1m1 0h1m1 0h1m1 0h5m4 0h1m2 0h2m4 0h1M2 13.5h4m4 0h1m7 0h1m3 0h7M0 14.5h3m1 0h4m1 0h1m2 0h1m1 0h2m2 0h2m1 0h1m1 0h2m1 0h1m1 0h1M0 15.5h4m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1m3 0h3m1 0h1m1 0h1m1 0h1M0 16.5h2m1 0h4m1 0h2m1 0h1m3 0h1m3 0h2m2 0h1m1 0h1M0 17.5h3m1 0h2m2 0h2m1 0h2m4 0h1m1 0h3m2 0h1m1 0h2M0 18.5h4m2 0h1m1 0h2m2 0h3m1 0h2m1 0h2m1 0h2m1 0h1m2 0h1M0 19.5h3m1 0h2m1 0h2m4 0h1m1 0h2m7 0h3M0 20.5h2m3 0h3m3 0h3m4 0h1m1 0h8M8 21.5h3m1 0h2m2 0h3m1 0h1m3 0h2M0 22.5h7m1 0h1m4 0h1m1 0h2m2 0h2m1 0h1m1 0h2M0 23.5h1m5 0h1m1 0h6m2 0h1m1 0h3m3 0h1m2 0h1M0 24.5h1m1 0h3m1 0h1m1 0h1m3 0h2m1 0h3m1 0h7m1 0h1M0 25.5h1m1 0h3m1 0h1m1 0h2m4 0h1m1 0h1m1 0h1m2 0h1m1 0h1m3 0h1M0 26.5h1m1 0h3m1 0h1m2 0h2m1 0h1m1 0h1m1 0h1m1 0h1m1 0h2m1 0h2m1 0h3M0 27.5h1m5 0h1m3 0h1m1 0h4m8 0h3m1 0h1M0 28.5h7m1 0h2m1 0h1m1 0h1m2 0h5m3 0h2"/></svg>
+          </div>
+          <div class="scan">Scan to visit</div>
+        </div>
+        <p class="footer-note">
+          TransitionHQ is an independent private consultancy — not affiliated with, nor endorsed by,
+          the Australian Defence Force, the Department of Veterans’ Affairs or the Australian
+          Government. “TransitionHQ” is a working name; contact details shown are placeholders.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

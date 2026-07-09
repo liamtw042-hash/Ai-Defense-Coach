@@ -118,6 +118,28 @@ rewrite so deep links resolve.
 **GitHub Pages / other static hosts** — serve `dist/` and ensure unknown routes
 fall back to `index.html` (needed for React Router).
 
+## Seminar flyer (A4 print handout)
+
+A one-page A4 flyer that matches the site's identity lives in [`flyer/`](flyer/),
+for handing out at Defence transition seminars:
+
+- `flyer/transitionhq-flyer.html` — the flyer (self-contained; inline QR + web fonts)
+- `flyer/transitionhq-flyer.pdf` — the print-ready A4 PDF
+- `flyer/generate-qr.mjs` — regenerates the QR code SVG (`flyer/qr.svg`)
+- `flyer/build-pdf.sh` — renders the HTML to PDF via headless Chrome
+
+Regenerate the PDF after editing the HTML:
+
+```bash
+npm run flyer:pdf     # requires Google Chrome installed
+```
+
+To change the QR target URL: edit `URL` in `flyer/generate-qr.mjs`, run
+`npm run flyer:qr`, then paste the contents of `flyer/qr.svg` into
+`transitionhq-flyer.html` (replacing the `<svg>` after the `<!-- QR -->` marker),
+and rebuild the PDF. The QR currently points to `https://transitionhq.com.au`
+(placeholder). Contact details on the flyer are placeholders too.
+
 ## Growing into a platform
 
 The codebase is structured so a secure client portal can be added later without a

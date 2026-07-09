@@ -23,15 +23,19 @@
     @apply bg-paper text-ink font-sans antialiased;
     font-size: 1.0625rem;
     line-height: 1.65;
-    font-feature-settings: 'ss01', 'cv01';
   }
 
-  /* Serif headings default to Fraunces optical sizing for large display use. */
+  /* Serif headings use Fraunces with optical sizing. We keep default letterforms
+     and only standard ligatures — Fraunces' stylistic sets / character variants
+     (ss01, cv01, the WONK alternates) produce quirky j/f/g/n glyphs, so they are
+     explicitly left off for a clean, editorial read. */
   h1,
   h2,
   h3 {
     @apply font-serif text-navy;
     font-optical-sizing: auto;
+    font-feature-settings: normal;
+    font-variant-ligatures: common-ligatures;
     text-wrap: balance;
   }
 
